@@ -10,8 +10,8 @@ select each name to read their feedback. Saving again replaces that person's
 previous comment and status for that page. Simultaneous edits to the same person's
 page use the most recent save.
 
-The page lists public information pages, the quote basket and published products.
-Brand and category pages are temporarily excluded from review; any previously
+The page lists public information pages and the quote basket.
+Product, brand and category pages are temporarily excluded from review; any previously
 saved feedback for those pages remains stored. Private admin, customer-specific quote
 confirmations and artwork proof links are excluded. It is not linked from public
 navigation or the sitemap and requests no search indexing.

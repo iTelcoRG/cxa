@@ -14,7 +14,6 @@ export const reviewSchema = z.object({
 
 export const mainReviewPages: ReviewPage[] = [
   { path: "/", title: "Home" },
-  { path: "/products", title: "Products" },
   { path: "/create-your-brand", title: "Create your brand" },
   { path: "/printing-embroidery", title: "Printing & embroidery" },
   { path: "/how-it-works", title: "How it works" },

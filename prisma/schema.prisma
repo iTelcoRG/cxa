@@ -7,6 +7,16 @@ datasource db {
   provider = "postgresql"
 }
 
+model WebsiteReview {
+  reviewer String
+  pagePath String
+  comment String @default("")
+  status String @default("NOT_REVIEWED")
+  updatedAt DateTime @updatedAt
+
+  @@id([reviewer, pagePath])
+}
+
 enum SupplierConnectionType {
   API
   CSV

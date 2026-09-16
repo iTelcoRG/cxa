@@ -12,10 +12,15 @@
 
 # testing
 /coverage
+/.cxa-backups/
+/.cxa-storage/
 
 # next.js
 /.next/
 /out/
+
+# generated database client
+/src/generated/prisma/
 
 # production
 /build
@@ -30,8 +35,9 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# environment files (commit only the documented template)
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -39,3 +45,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local logs, database files, and private key material
+*.log
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.sqlite3-*
+*.dump
+*.key
+*.p12
+*.pfx

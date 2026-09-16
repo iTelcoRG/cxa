@@ -1,0 +1,33 @@
+body:has(.contact-page){background:#080a0b}
+html:has(.contact-page){scroll-padding-top:var(--cxa-header-height,6rem)}
+/* Reuse the header shell and hero copy inset to align the visible logo edge. */
+.contact-page{max-width:var(--cxa-home-shell-max);padding-inline:var(--cxa-hero-copy-inset);color:var(--cxa-surface-white)}
+.contact-page .page-heading{max-width:58rem;margin-bottom:2rem}
+.contact-page .page-heading h1{color:var(--cxa-surface-white);font-size:clamp(2.5rem,4.5vw,4rem);line-height:1.08;overflow-wrap:anywhere}
+.contact-page .page-heading p{color:var(--cxa-muted-on-dark);line-height:1.6}
+.contact-content{max-width:54rem}
+.contact-enquiry{padding:clamp(1.25rem,3vw,2.5rem);border:1px solid #ffffff24;border-radius:1.25rem;background:#171c1f;color:var(--cxa-surface-white);box-shadow:0 16px 40px #0003;scroll-margin-top:1rem}
+.contact-enquiry h2,.contact-information h2{color:var(--cxa-surface-white);font-size:clamp(1.35rem,2vw,1.75rem);line-height:1.25;margin:0 0 1.5rem;overflow-wrap:anywhere}
+.contact-enquiry form,.contact-enquiry .enquiry-field{display:grid;gap:.5rem;min-width:0}
+.contact-enquiry form{gap:1.5rem}
+.contact-enquiry label{color:var(--cxa-surface-white);font-weight:600;line-height:1.5}
+.enquiry-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr));gap:1.5rem;min-width:0}
+.contact-enquiry input,.contact-enquiry textarea{width:100%;min-width:0;min-height:48px;padding:.8rem 1rem;border:1px solid #777f84;border-radius:.5rem;background:#0f1214;color:var(--cxa-surface-white);font:inherit;font-weight:400}
+.contact-enquiry input::placeholder{color:var(--cxa-muted-on-dark);opacity:1}
+.contact-enquiry textarea{resize:vertical}
+.contact-enquiry .primary-button{justify-self:start;min-height:48px;white-space:normal;color:#090909}
+.contact-enquiry :is(input,textarea,button):focus-visible,.contact-information a:focus-visible{outline:3px solid var(--cxa-yellow);outline-offset:4px}
+.contact-enquiry [disabled]{opacity:.65;cursor:wait}
+.contact-enquiry .enquiry-honeypot{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.contact-enquiry .enquiry-error,.contact-enquiry .enquiry-field-error{color:#ffbdbd;line-height:1.5;overflow-wrap:anywhere;margin:0}
+.contact-enquiry :is([role=alert],[role=status]){margin:0;line-height:1.6;scroll-margin-top:1rem}
+.contact-enquiry p[role=status]{color:var(--cxa-muted-on-dark)}
+.contact-information{margin-top:2rem;padding:2rem 0 0;border-top:1px solid #ffffff24}
+.contact-information h2{margin-bottom:.75rem}
+.contact-information a{display:inline-flex;align-items:center;min-height:44px;color:var(--cxa-surface-white);font-size:1.125rem;font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px;overflow-wrap:anywhere;max-width:100%}
+.contact-information a:hover{color:var(--cxa-yellow)}
+.contact-information p{max-width:65ch;color:var(--cxa-muted-on-dark);line-height:1.7;margin:.75rem 0 0}
+body:has(.contact-page) .footer-grid>*{min-width:0;overflow-wrap:anywhere}
+@media(max-width:1100px){.contact-page{padding-inline:0}}
+@media(max-width:600px){.enquiry-fields{grid-template-columns:1fr}.contact-enquiry form{gap:1.25rem}}
+@media(prefers-reduced-motion:reduce){html:has(.contact-page){scroll-behavior:auto}.contact-page .primary-button{transition:none;transform:none}}

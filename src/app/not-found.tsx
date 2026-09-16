@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function NotFound(){return <main className="page-shell shell not-found-page"><span aria-hidden="true">404</span><h1>Let&apos;s get you back on track.</h1><p>The product, brand, category or page may have moved—or the address may be incorrect.</p><div className="button-row"><Link className="primary-button" href="/products">Browse products</Link><Link className="secondary-button" href="/">Return home</Link></div></main>}

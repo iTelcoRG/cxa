@@ -1,0 +1,5 @@
+import type { MetadataRoute } from "next";
+import { listActiveBrands, listActiveCategories, listPublishedProducts } from "../catalogue/customer.ts";
+import { publicUrl } from "../lib/site.ts";
+const contentPaths=["/create-your-brand","/about","/contact","/how-it-works","/printing-embroidery","/delivery","/faq","/privacy","/terms","/brands","/products"];
+export default async function sitemap():Promise<MetadataRoute.Sitemap>{const [products,categories,brands]=await Promise.all([listPublishedProducts(),listActiveCategories(),listActiveBrands()]);return [{url:publicUrl("/"),changeFrequency:"weekly",priority:1},...contentPaths.map(path=>({url:publicUrl(path),changeFrequency:"monthly" as const,priority:path==="/products"?.9:.6})),...products.map(product=>({url:publicUrl(`/products/${product.slug}`),lastModified:product.createdAt?new Date(product.createdAt):undefined,changeFrequency:"weekly" as const,priority:.8})),...categories.map(category=>({url:publicUrl(`/categories/${category.slug}`),changeFrequency:"weekly" as const,priority:.7})),...brands.map(brand=>({url:publicUrl(`/brands/${brand.slug}`),changeFrequency:"weekly" as const,priority:.7}))];}

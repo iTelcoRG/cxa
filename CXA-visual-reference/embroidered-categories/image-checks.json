@@ -1,0 +1,73 @@
+{
+  "count": 11,
+  "allDimensionsMatch": true,
+  "images": [
+    {
+      "file": "accessories.png",
+      "width": 1254,
+      "height": 1254,
+      "dimensionsMatch": true
+    },
+    {
+      "file": "fleece.png",
+      "width": 1254,
+      "height": 1254,
+      "dimensionsMatch": true
+    },
+    {
+      "file": "headwear-v3.png",
+      "width": 1254,
+      "height": 1254,
+      "dimensionsMatch": true,
+      "originalFile": "headwear.png"
+    },
+    {
+      "file": "hi-vis.png",
+      "width": 1254,
+      "height": 1254,
+      "dimensionsMatch": true
+    },
+    {
+      "file": "longsleeve.png",
+      "width": 1254,
+      "height": 1254,
+      "dimensionsMatch": true
+    },
+    {
+      "file": "outerwear.png",
+      "width": 1254,
+      "height": 1254,
+      "dimensionsMatch": true
+    },
+    {
+      "file": "pants-shorts.png",
+      "width": 1254,
+      "height": 1254,
+      "dimensionsMatch": true
+    },
+    {
+      "file": "polos.png",
+      "width": 1254,
+      "height": 1254,
+      "dimensionsMatch": true
+    },
+    {
+      "file": "singlets.png",
+      "width": 1254,
+      "height": 1254,
+      "dimensionsMatch": true
+    },
+    {
+      "file": "sweatshirts-hoodies.png",
+      "width": 1254,
+      "height": 1254,
+      "dimensionsMatch": true
+    },
+    {
+      "file": "t-shirts.png",
+      "width": 1254,
+      "height": 1254,
+      "dimensionsMatch": true
+    }
+  ]
+}

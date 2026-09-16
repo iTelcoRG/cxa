@@ -1,0 +1,4 @@
+import { requireStaff } from "../../../../admin/session.ts";
+import { adminSearch } from "../../../../admin/search.ts";
+import { AdminHeading } from "../../../../components/admin-ui.tsx";
+export default async function SearchPage({ searchParams }: { searchParams: Promise<{ q?: string }> }) { await requireStaff("admin:read"); const q = String((await searchParams).q ?? "").slice(0, 80); const results = await adminSearch(q); return <><AdminHeading title="Admin search" description="Bounded search across operational identifiers and safe catalogue fields."/><form className="admin-inline"><input name="q" defaultValue={q} minLength={2} maxLength={80} required/><button>Search</button></form><div className="admin-stack">{results.map((result) => <a className="admin-card" href={result.href} key={`${result.type}-${result.href}`}><strong>{result.label}</strong><span>{result.type}</span></a>)}</div></>; }

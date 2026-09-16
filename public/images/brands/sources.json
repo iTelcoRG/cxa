@@ -1,0 +1,50 @@
+[
+  {
+    "sourcePage": "https://www.gildancorp.com/en/media/media-resources/",
+    "slug": "gildan",
+    "assetUrl": "https://www.gildancorp.com/media/uploads/resources/bgildan_brand_logo_2.png",
+    "file": "gildan.png"
+  },
+  {
+    "sourcePage": "https://www.gildancorp.com/en/media/media-resources/",
+    "slug": "american-apparel",
+    "assetUrl": "https://www.gildancorp.com/media/uploads/resources/bamerican_apparel_logo_black.png",
+    "file": "american-apparel.png"
+  },
+  {
+    "sourcePage": "https://www.gildancorp.com/en/media/media-resources/",
+    "slug": "comfort-colours",
+    "assetUrl": "https://www.gildancorp.com/media/uploads/resources/bcomfortcolors_registered_coral.png",
+    "file": "comfort-colours.png"
+  },
+  {
+    "sourcePage": "https://www.resultclothing.com/",
+    "slug": "result",
+    "assetUrl": "https://img.resultclothing.net/1/indexpage/Result.jpg",
+    "file": "result.jpg"
+  },
+  {
+    "sourcePage": "https://www.resultclothing.com/",
+    "slug": "spiro",
+    "assetUrl": "https://img.resultclothing.net/1/indexpage/Spiro.jpg",
+    "file": "spiro.jpg"
+  },
+  {
+    "sourcePage": "https://www.resultclothing.com/",
+    "slug": "result-recycled",
+    "assetUrl": "https://img.resultclothing.net/1/indexpage/Recycled-Logo-Blue-July-25-box.jpg",
+    "file": "result-recycled.jpg"
+  },
+  {
+    "sourcePage": "https://www.resultclothing.com/",
+    "slug": "work-guard",
+    "assetUrl": "https://img.resultclothing.net/1/indexpage/Work-Guard-Logo-Orange-Black-July-25-box.png",
+    "file": "work-guard.png"
+  },
+  {
+    "assetUrl": "https://uflex.co.za/wp-content/uploads/2021/08/uflex-logo-dark-backgrounds.png",
+    "sourcePage": "https://www.uflex.co.za/",
+    "slug": "uflex",
+    "file": "uflex.png"
+  }
+]

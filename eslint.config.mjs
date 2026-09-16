@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Unintegrated 3D experiments have their own dependencies; not part of the app.
+    "prototype/**",
   ]),
 ]);
 

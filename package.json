@@ -2,25 +2,66 @@
   "name": "cxa-website",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "postinstall": "prisma generate",
+    "lint": "eslint",
+    "test": "node --conditions=react-server --experimental-strip-types --test --test-concurrency=1 tests/*.test.ts",
+    "db:generate": "prisma generate",
+    "db:validate": "prisma validate",
+    "db:migrate": "prisma migrate dev",
+    "db:migrate:deploy": "prisma migrate deploy",
+    "db:seed": "prisma db seed",
+    "db:status": "node --conditions=react-server --experimental-strip-types scripts/database-status.ts",
+    "quotes:list": "node --conditions=react-server --experimental-strip-types scripts/quotes-list.ts",
+    "quotes:show": "node --conditions=react-server --experimental-strip-types scripts/quotes-show.ts",
+    "quotes:submit-test": "node --conditions=react-server --experimental-strip-types scripts/quotes-submit-test.ts",
+    "cxa:publish-test-product": "node --conditions=react-server --experimental-strip-types scripts/publish-test-product.ts",
+    "premium-apparel:ingest-test": "node --conditions=react-server --experimental-strip-types scripts/premium-apparel-ingest-test.ts",
+    "premium-apparel:test": "node --conditions=react-server --experimental-strip-types scripts/premium-apparel-test.ts",
+    "premium-apparel:bulk-price-test": "node --conditions=react-server --experimental-strip-types scripts/premium-apparel-bulk-price-test.ts",
+    "admin:seed": "node --conditions=react-server --experimental-strip-types scripts/admin-seed.ts",
+    "admin:list": "node --conditions=react-server --experimental-strip-types scripts/admin-list.ts",
+    "sync:worker": "node --conditions=react-server --experimental-strip-types scripts/sync-worker.ts",
+    "sync:premium-apparel:full": "node --conditions=react-server --experimental-strip-types scripts/premium-apparel-sync.ts full",
+    "sync:premium-apparel:products": "node --conditions=react-server --experimental-strip-types scripts/premium-apparel-sync.ts products",
+    "sync:premium-apparel:stock-prices": "node --conditions=react-server --experimental-strip-types scripts/premium-apparel-sync.ts stock-prices",
+    "sync:status": "node --conditions=react-server --experimental-strip-types scripts/supplier-sync-status.ts",
+    "artwork:cleanup": "node --conditions=react-server --experimental-strip-types scripts/artwork-cleanup.ts",
+    "artwork:status": "node --conditions=react-server --experimental-strip-types scripts/artwork-status.ts",
+    "artwork:test-flow": "node --conditions=react-server --experimental-strip-types scripts/artwork-development-test.ts"
+    ,"operations:test-flow": "node --conditions=react-server --experimental-strip-types scripts/task13-development-flow.ts"
+    ,"hardening:test-flow": "node --conditions=react-server --experimental-strip-types scripts/task14-development-flow.ts"
+    ,"rate-limits:cleanup": "node --conditions=react-server --experimental-strip-types scripts/rate-limit-cleanup.ts"
   },
   "dependencies": {
+    "@prisma/adapter-pg": "^7.10.0",
+    "@prisma/client": "^7.10.0",
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^17.4.2",
     "next": "16.3.3",
+    "next-auth": "^5.0.0-beta.32",
+    "nodemailer": "^9.1.0",
+    "pg": "^8.23.0",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "sanitize-html": "^2.17.7",
+    "server-only": "^0.0.1",
+    "zod": "^4.5.4"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/nodemailer": "^7.0.12",
+    "@types/pg": "^8.23.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/sanitize-html": "^2.16.1",
     "eslint": "^9",
     "eslint-config-next": "16.3.3",
-    "tailwindcss": "^4",
+    "prisma": "^7.10.0",
     "typescript": "^5"
   }
 }

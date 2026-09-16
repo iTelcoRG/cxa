@@ -1,0 +1,11 @@
+import { notFound } from "next/navigation";
+import { z } from "zod";
+import { requireStaff } from "../../../../../../admin/session.ts";
+import { database } from "../../../../../../lib/database.ts";
+import { AdminHeading, Pager, StatusBadge } from "../../../../../../components/admin-ui.tsx";
+export default async function SupplierSyncHistory({ params, searchParams }: { params: Promise<{ supplierId: string }>; searchParams: Promise<Record<string, string | string[] | undefined>> }) {
+  await requireStaff("suppliers:read"); const { supplierId } = await params; const query = await searchParams; const page = Math.max(1, z.coerce.number().int().catch(1).parse(query.page)); const take = 25;
+  const supplier = await database.supplier.findUnique({ where: { id: supplierId }, select: { name: true } }); if (!supplier) notFound();
+  const runs = await database.supplierSyncRun.findMany({ where: { supplierId }, orderBy: { queuedAt: "desc" }, skip: (page - 1) * take, take: take + 1, include: { triggeredByStaffUser: { select: { name: true } } } }); const hasNext = runs.length > take; runs.splice(take);
+  return <><AdminHeading title={`${supplier.name} sync history`} description="Safe supplier job history and progress summaries."/><div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>Run</th><th>Type</th><th>Trigger</th><th>Status</th><th>Phase</th><th>Started</th><th>Duration</th><th>Products</th><th>Variants</th><th>Stock</th><th>Prices</th><th>Skipped</th><th>Removed</th></tr></thead><tbody>{runs.map((run) => <tr key={run.id}><td title={run.id}>{run.id.slice(-8)}</td><td>{run.syncType.replaceAll("_", " ")}</td><td>{run.triggerType}<br/><small>{run.triggeredByStaffUser?.name ?? "Worker"}</small></td><td><StatusBadge value={run.status}/></td><td>{run.phase.replaceAll("_", " ")}</td><td>{run.startedAt?.toLocaleString("en-NZ") ?? "Queued"}</td><td>{run.startedAt && run.completedAt ? `${Math.round((run.completedAt.getTime()-run.startedAt.getTime())/1000)}s` : "—"}</td><td>{run.productCount}</td><td>{run.variantCount}</td><td>{run.stockUpdatedCount}</td><td>{run.priceUpdatedCount}</td><td>{run.skippedCount}</td><td>{run.removedProductCount + run.removedVariantCount}</td></tr>)}</tbody></table></div><Pager page={page} hasNext={hasNext} base={`/admin/suppliers/${supplierId}/syncs`}/></>;
+}

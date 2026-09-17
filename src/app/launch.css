@@ -248,6 +248,16 @@ main:not(.admin-main) h1,main:not(.admin-main) h2,main:not(.admin-main) h3,.site
   .launch-steps li{padding:1.25rem}
 }
 
+/* Each mobile card covers the previous one, leaving its rounded top visible.
+   Native sticky positioning keeps scrolling reversible and needs no scroll handler. */
+@media(max-width:760px) and (prefers-reduced-motion:no-preference){
+  .launch-steps ol[data-sticky=true]{isolation:isolate;padding-bottom:3rem}
+  .launch-steps ol[data-sticky=true] li{position:sticky;top:calc(var(--cxa-header-height,73px) + 1rem);align-self:start}
+  .launch-steps ol[data-sticky=true] li:nth-child(2){top:calc(var(--cxa-header-height,73px) + 1rem + 12px)}
+  .launch-steps ol[data-sticky=true] li:nth-child(3){top:calc(var(--cxa-header-height,73px) + 1rem + 24px)}
+  .launch-steps ol[data-sticky=true] li:nth-child(4){top:calc(var(--cxa-header-height,73px) + 1rem + 36px)}
+}
+
 /* The header and hero own the opening desktop screen. The header observer
    provides its actual border-box height, including an expanded search panel.
    Content can always grow beyond this minimum; tablet/mobile stay in flow. */
@@ -371,4 +381,3 @@ body:has(.create-brand-page){background:#080a0b}
   main.page-shell{padding-top:2rem}
   html{scroll-padding-top:calc(var(--cxa-header-height,72px) + 1rem)}
 }
-

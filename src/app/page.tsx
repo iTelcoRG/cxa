@@ -8,6 +8,7 @@ import { ApparelCategoryGrid } from "../components/apparel-category-grid.tsx";
 import { publicUrl } from "../lib/site.ts";
 import { featuredTechniques } from "../content/decoration-techniques.ts";
 import { DecorationTechniqueCard } from "../components/decoration-technique-card.tsx";
+import { HomeStepStack } from "../components/home-step-stack.tsx";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "Custom Apparel & Merchandise NZ | CXA", description: "Premium custom apparel, workwear and merchandise with screen printing, embroidery and heat transfer from CXA.", alternates: { canonical: "/" } };
@@ -31,7 +32,7 @@ export default async function Home() {
         </div>
       </div>
     </section>
-    <section className="launch-steps"><div className="shell launch-steps-grid"><header><h2>From idea to finished apparel.</h2></header><ol>{steps.map(([title, copy], index) => <li key={title}><StepIcon step={index} /><div><span className="step-number">{index + 1}</span><h3>{title}</h3><p>{copy}</p></div></li>)}</ol></div></section>
+    <section className="launch-steps"><div className="shell launch-steps-grid"><header><h2>From idea to finished apparel.</h2></header><HomeStepStack>{steps.map(([title, copy], index) => <li key={title}><StepIcon step={index} /><div><span className="step-number">{index + 1}</span><h3>{title}</h3><p>{copy}</p></div></li>)}</HomeStepStack></div></section>
     <section className="section shell launch-categories">
       <div className="section-heading"><div><h2>Start with the right base.</h2></div><Link className="text-link" href="/products">Browse all apparel →</Link></div>
       <ApparelCategoryGrid />
